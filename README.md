@@ -1,6 +1,6 @@
 # Mars ROS Interfaces
 
-ROS 2 interface packages used by the Mars rover software. This repository contains the messages and action definitions shared between teleoperation, autonomy, and the serial hardware layer.
+ROS 2 interface packages used by the Mars rover software. This repository contains the messages and action definitions shared between teleoperation, autonomy, robot control, and the serial hardware layer.
 
 ## Packages
 
@@ -43,12 +43,31 @@ autonomy_msgs/action/AutonomousActions
 - Result: `bool success`
 - Feedback: `string status`
 
+### `robot_control_msgs`
+
+Messages for the rover's arm and drum control and its overall operating state.
+
+| Interface | Purpose |
+| --- | --- |
+| `robot_control_msgs/msg/ArmDrumControl` | Front and back arm speeds and front and back drum speeds, each defaulting to `0.0`. |
+| `robot_control_msgs/msg/ArmControlMode` | Control mode values for the front and back arms. |
+| `robot_control_msgs/msg/RobotState` | The rover's current operating state. |
+
+State constants in `RobotState` are:
+
+- `TELEOP = 0`
+- `DIG = 1`
+- `DUMP = 2`
+- `ESTOP = 3`
+
+`state` defaults to `ESTOP`.
+
 ## Building
 
 From the root of a sourced ROS 2 workspace:
 
 ```bash
-colcon build --packages-select teleop_msgs serial_msgs autonomy_msgs
+colcon build --packages-select teleop_msgs serial_msgs autonomy_msgs robot_control_msgs
 source install/setup.bash
 ```
 
@@ -62,6 +81,7 @@ Example ROS 2 type names:
 ros2 interface show teleop_msgs/msg/GamepadState
 ros2 interface show serial_msgs/msg/MotorCommands
 ros2 interface show autonomy_msgs/action/AutonomousActions
+ros2 interface show robot_control_msgs/msg/RobotState
 ```
 
 Include the relevant package as a dependency in a consuming package's `package.xml` and build configuration before importing or using its generated interfaces.
