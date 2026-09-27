@@ -1,0 +1,2 @@
+uint32 front_arm_control
+uint32 back_arm_control
