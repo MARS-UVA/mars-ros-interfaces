@@ -1,0 +1,7 @@
+# Select the dump routine independently of the robot state number.
+int32 BRUNO_INDEX=0
+int32 index
+---
+bool success
+---
+string phase

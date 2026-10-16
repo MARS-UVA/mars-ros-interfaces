@@ -14,6 +14,8 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "action/AutonomousActions.action"
+  "action/Dig.action"
+  "action/Dump.action"
 )
 
 if(BUILD_TESTING)
