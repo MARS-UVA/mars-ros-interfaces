@@ -16,6 +16,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "action/AutonomousActions.action"
   "action/Dig.action"
   "action/Dump.action"
+  "action/FullAuto.action"
 )
 
 if(BUILD_TESTING)

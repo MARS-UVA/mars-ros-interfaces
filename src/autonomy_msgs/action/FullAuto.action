@@ -1,0 +1,11 @@
+# Positive, finite wall-clock run duration in seconds.
+float64 time_limit_sec
+---
+bool success
+string outcome
+uint32 completed_cycles
+---
+string state
+string latest_outcome
+uint32 completed_cycles
+float64 elapsed_sec
