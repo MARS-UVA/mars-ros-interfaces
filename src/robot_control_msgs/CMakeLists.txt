@@ -25,6 +25,7 @@ if(BUILD_TESTING)
 endif()
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/SetControl.srv"
     "msg/ArmDrumControl.msg"
     "msg/ArmControlMode.msg"
     "msg/RobotState.msg"

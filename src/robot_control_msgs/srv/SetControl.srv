@@ -1,0 +1,6 @@
+# Internal, atomic command ownership update; empty sources means idle.
+string[] sources
+bool locked
+---
+bool success
+string message

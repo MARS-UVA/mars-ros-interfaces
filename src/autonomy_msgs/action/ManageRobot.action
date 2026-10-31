@@ -1,0 +1,21 @@
+# One supervised operation. Select a new goal after clearing E-stop.
+uint8 NAVIGATE=0
+uint8 DIG=1
+uint8 DUMP=2
+uint8 FULL_AUTO=3
+uint8 operation
+# Used by DIG/DUMP.
+int32 routine_index
+# Used by NAVIGATE; full-auto destinations remain state placeholders.
+geometry_msgs/PoseStamped target_pose
+# Positive wall-clock deadline for every operation, including FULL_AUTO.
+float64 time_limit_sec
+---
+bool success
+string outcome
+uint32 completed_cycles
+---
+string state
+string latest_outcome
+uint32 completed_cycles
+float64 elapsed_sec
