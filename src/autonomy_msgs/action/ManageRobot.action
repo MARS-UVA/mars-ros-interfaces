@@ -2,12 +2,13 @@
 uint8 NAVIGATE=0
 uint8 DIG=1
 uint8 DUMP=2
-uint8 FULL_AUTO=3
-uint8 RUN_START=4
+uint8 RUN_MACHINE=3
 uint8 operation
-# Used by DIG/DUMP.
+# Used by RUN_MACHINE; registered in robot_super_intelligence/machines.
+string machine_name
+# Used by DIG/DUMP and machines containing those operations.
 int32 routine_index
-# Used by NAVIGATE; full-auto destinations remain state placeholders.
+# Used by NAVIGATE. Machines resolve destinations from published arena markers.
 geometry_msgs/PoseStamped target_pose
 # Positive wall-clock deadline for every operation and machine.
 float64 time_limit_sec
