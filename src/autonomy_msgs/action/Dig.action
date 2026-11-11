@@ -1,5 +1,7 @@
 # Select the dig routine independently of the robot state number.
 int32 BRUNO_INDEX=0
+int32 FRONTLOADER_INDEX=1
+int32 GROUND_DRUM_INDEX=2
 int32 index
 ---
 bool success
